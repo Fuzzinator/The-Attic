@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System;
+using Object = System.Object;
 
 namespace FuzzyTools
 {
@@ -27,12 +28,21 @@ namespace FuzzyTools
 					{
 						tempType = type.GetElementType();
 					}
-					var method = typeof(GameObject).GetMethod(methodName,
-						BindingFlags.Instance | BindingFlags.Public,
-						null, Type.EmptyTypes, null);
-					if (method == null) continue;
-					var generic = method.MakeGenericMethod(tempType);
-					var obj = generic.Invoke(mono.gameObject, null);
+
+					Object obj;
+					if (type == typeof(GameObject))
+					{
+						obj = mono.gameObject;
+					}
+					else
+					{
+						var method = typeof(GameObject).GetMethod(methodName,
+							BindingFlags.Instance | BindingFlags.Public,
+							null, Type.EmptyTypes, null);
+						if (method == null) continue;
+						var generic = method.MakeGenericMethod(tempType);
+						obj = generic.Invoke(mono.gameObject, null);
+					}
 					var newObj = Convert.ChangeType(obj, type);
 					field.SetValue(mono, newObj);
 				}

@@ -413,7 +413,9 @@ namespace FuzzyTools
 				var collider = mesh.gameObject.AddComponent<MeshCollider>();
 				if (collider == null) Debug.Log("What the what?");
 				collider.sharedMesh = mesh.sharedMesh;
+				#if !UNITY_2018_3_OR_NEWER
 				collider.inflateMesh = mesh.sharedMesh.triangles.Length < 256;
+				#endif
 				newMeshColliders.Add(collider);
 			}
 

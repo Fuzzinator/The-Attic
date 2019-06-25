@@ -2,7 +2,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
-using System.Linq;
 
 namespace FuzzyTools
 {
@@ -14,8 +13,6 @@ namespace FuzzyTools
 
 	public class GOVisManager : EditorWindow
 	{
-		private static int _radioSelection = 0;
-		
 		private const string HierarchyName = "InSceneTrackerForFuzzyToolsHierarchy";
 		private const string WindowTitle = "Vis Manager";
 		private const string Box = "box";
@@ -44,7 +41,7 @@ namespace FuzzyTools
 		private static GUIStyle _headder;
 
 		
-		[MenuItem("Assets/FuzzyTools/GameObject Vis Manager", false)]
+		[MenuItem("Window/FuzzyTools/GameObject Vis Manager", false)]
 		private static void OpenManager()
 		{
 			_hierarchyTool = GameObject.Find(HierarchyName);

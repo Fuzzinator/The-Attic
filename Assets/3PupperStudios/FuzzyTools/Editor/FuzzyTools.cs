@@ -11,6 +11,7 @@ using UnityEditor.WindowsStandalone;
 using UnityEngine.SceneManagement;
 using UnityEditorInternal;
 using UnityEngine.Networking;
+using UnityEngine.Rendering;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
@@ -3379,7 +3380,12 @@ namespace FuzzyTools
             // Copy over all vars
             newTerrain.bakeLightProbesForTrees = origTerrain.bakeLightProbesForTrees;
             newTerrain.basemapDistance = origTerrain.basemapDistance;
+            #if !UNITY_2019_1_OR_NEWER
             newTerrain.castShadows = origTerrain.castShadows;
+            #endif
+            #if UNITY_2019_1_OR_NEWER
+            newTerrain.shadowCastingMode = ShadowCastingMode.On;
+            #endif
             newTerrain.collectDetailPatches = origTerrain.collectDetailPatches;
             newTerrain.detailObjectDensity = origTerrain.detailObjectDensity;
             newTerrain.detailObjectDistance = origTerrain.detailObjectDistance;

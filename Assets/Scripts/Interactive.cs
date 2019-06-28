@@ -27,6 +27,7 @@ public class Interactive : FuzzyMonoBehaviour
 
     //public bool collectible = false;
     [ReadOnly]public Vector3 origPos;
+    [ReadOnly] public Quaternion origRot;
     [AutoGet] public AudioSource source;
     [AutoGet] public Animator animator;
     [ReadOnly] [AutoGet] public Rigidbody thisRigid;
@@ -66,7 +67,9 @@ public class Interactive : FuzzyMonoBehaviour
 //        {
 //            
 //        }
-        origPos = transform.position;        
+        var t = transform;
+        origPos = t.position;
+        origRot = t.rotation;
 
         _pool = AudioPool.Instance;
         _invalidLength = _pool.invalidInteract.Count - 1;
@@ -131,6 +134,7 @@ public class Interactive : FuzzyMonoBehaviour
                     player.heldObj = this;
                     source.PlayOneShot(clip_1);
                     print("Playing Clip 1");
+                    player.DisableInteract();
                     return _wait1;
                 }
                 else

@@ -46,9 +46,7 @@ public class Interactions : FuzzyMonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        print("Cant interact with " + currentObj);
-        currentObj = null;
-        _controls.Main.Interact.performed -= InteractOnPerformed;
+        DisableInteract();
     }
 
     private void EnableInteract(Collider other)
@@ -59,6 +57,14 @@ public class Interactions : FuzzyMonoBehaviour
         activeInteractive = currentObj.GetComponent<Interactive>();
         _controls.Main.Interact.performed += InteractOnPerformed;
      }
+
+    public void DisableInteract()
+    {
+        print("Cant interact with " + currentObj);
+        currentObj = null;
+        activeInteractive = null;
+        _controls.Main.Interact.performed -= InteractOnPerformed;
+    }
 
     private void InteractOnPerformed(InputAction.CallbackContext context)
     {
@@ -80,10 +86,14 @@ public class Interactions : FuzzyMonoBehaviour
     private IEnumerator ReturnItem()
     {
         var obj = heldObj;
+        heldObj = null;
         yield return null;
         yield return FuzzyWait.ForFiveSeconds();
+        obj.thisRigid.isKinematic = true;
         obj.thisRigid.velocity = Vector3.zero;
-        obj.transform.position = obj.origPos;
+        var t = obj.transform;
+        t.position = obj.origPos;
+        t.rotation = obj.origRot;
         print("Return!");
     }
 }

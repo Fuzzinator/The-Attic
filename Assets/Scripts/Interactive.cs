@@ -62,7 +62,16 @@ public class Interactive : FuzzyMonoBehaviour
             _wait1 = new WaitForSeconds(customWaitTime1);
             _wait2 = new WaitForSeconds(customWaitTime2);
         }
+        //print(Animator.StringToHash("Interact"));
+        //-662453572
 
+        //print(Animator.StringToHash("Locked"));
+        //-662453572
+
+        //print(Animator.StringToHash("Unlocked"));
+        //-662453572
+
+        
 //        if (collectible && thisRigid != null)
 //        {
 //            
@@ -79,8 +88,7 @@ public class Interactive : FuzzyMonoBehaviour
 
     public WaitForSeconds Interact(Interactions player)
     {
-        animator.SetTrigger("Interact");
-        _interacted = !_interacted;
+        
         //if (collectible)
         //{
         //    thisRigid.isKinematic = true;
@@ -97,16 +105,21 @@ public class Interactive : FuzzyMonoBehaviour
                 {
                     var rand = _pool.invalidInteract[Random.Range(0, _invalidLength)];
                     source.PlayOneShot(rand);
+                    print("That doesn't do anything");
                     return _pool.invalidWaits[rand];
                 }
                 if (_interacted)
                 {
+                    animator.SetTrigger(-662453572);
+                    _interacted = !_interacted;
                     source.PlayOneShot(clip_1);
                     print("Playing Clip 1");
                     return _wait1;
                 }
                 else
                 {
+                    animator.SetTrigger(-662453572);
+                    _interacted = !_interacted;
                     source.PlayOneShot(clip_2);
                     print("Playing Clip 2");
                     return _wait2;
@@ -127,8 +140,9 @@ public class Interactive : FuzzyMonoBehaviour
             case InteractType.Key:
                 if (!held)
                 {
-                    transform.SetParent(player.holdPos, true);
-                    transform.localPosition = Vector3.zero;
+                    var t = transform;
+                    t.SetParent(player.holdPos, true);
+                    t.localPosition = Vector3.zero;
                     thisRigid.isKinematic = true;
                     thisCollider.enabled = false;
                     player.heldObj = this;
@@ -158,12 +172,22 @@ public class Interactive : FuzzyMonoBehaviour
                         type = InteractType.Basic;
                         var rand = _pool.unlocks[Random.Range(0, _invalidLength)];
                         source.PlayOneShot(rand);
+                        animator.SetTrigger(-662453572);
+                        print("You unlocked the thing!");
                         return _pool.unlockWaits[rand];
+                    }
+                    if( held.type == InteractType.Key )
+                    {
+                        var rand = _pool.invalidInteract[Random.Range(0, _lockedLength)];
+                        source.PlayOneShot(rand);
+                        print("The key doesnt fit");
+                        return _pool.invalidWaits[rand];
                     }
                     else
                     {
                         var rand = _pool.invalidInteract[Random.Range(0, _lockedLength)];
                         source.PlayOneShot(rand);
+                        print("The thing you're holding is bad");
                         return _pool.invalidWaits[rand];
                     }
                 }
@@ -171,6 +195,8 @@ public class Interactive : FuzzyMonoBehaviour
                 {
                     var rand = _pool.targetLocked[Random.Range(0, _invalidLength)];
                     source.PlayOneShot(rand);
+                    animator.SetTrigger(-662453572);
+                    print("It is locked");
                     return _pool.lockedWaits[rand];
                 }
             case InteractType.Puzzle:

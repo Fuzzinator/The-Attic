@@ -11,6 +11,7 @@ using UnityEngine.Serialization;
 public class Interactions : FuzzyMonoBehaviour
 {
     public Transform holdPos;
+    public GameObject interactIcon;
     [ReadOnly] public GameObject currentObj;
     [ReadOnly] public Interactive heldObj;
     [SerializeField] [ReadOnly] private Interactive activeInteractive;
@@ -54,6 +55,7 @@ public class Interactions : FuzzyMonoBehaviour
         if (currentObj != null) return;
         print("Press E to interact");
         currentObj = other.gameObject;
+        interactIcon.SetActive(true);
         activeInteractive = currentObj.GetComponent<Interactive>();
         _controls.Main.Interact.performed += InteractOnPerformed;
      }
@@ -63,6 +65,7 @@ public class Interactions : FuzzyMonoBehaviour
         print("Cant interact with " + currentObj);
         currentObj = null;
         activeInteractive = null;
+        interactIcon.SetActive(false);
         _controls.Main.Interact.performed -= InteractOnPerformed;
     }
 
@@ -74,7 +77,8 @@ public class Interactions : FuzzyMonoBehaviour
 
     private IEnumerator Interact()
     {
-        _controls.Main.Interact.Disable();
+        //_controls.Main.Interact.Disable();
+        DisableInteract();
         print("You interacted!");
         yield return null;
         var waitTime = activeInteractive.Interact(this);

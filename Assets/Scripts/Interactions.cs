@@ -55,8 +55,19 @@ public class Interactions : FuzzyMonoBehaviour
         if (currentObj != null) return;
         print("Press E to interact");
         currentObj = other.gameObject;
-        interactIcon.SetActive(true);
         activeInteractive = currentObj.GetComponent<Interactive>();
+        if (activeInteractive == null)
+        {
+            currentObj = other.transform.parent.gameObject;
+            activeInteractive = currentObj.GetComponent<Interactive>();
+        }
+
+        if (activeInteractive == null)
+        {
+            DisableInteract();
+            return;
+        }
+        interactIcon.SetActive(true);
         _controls.Main.Interact.performed += InteractOnPerformed;
      }
 

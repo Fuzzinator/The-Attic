@@ -30,6 +30,7 @@ public class Interactive : FuzzyMonoBehaviour
     [ReadOnly] public Quaternion origRot;
     [AutoGet] public AudioSource source;
     [AutoGet] public Animator animator;
+    public AnimationClip animClip;
     [ReadOnly] [AutoGet] public Rigidbody thisRigid;
     [AutoGet] [ReadOnly] public BoxCollider thisCollider;
     [ReadOnly] [SerializeField] private bool _interacted = false;
@@ -54,8 +55,10 @@ public class Interactive : FuzzyMonoBehaviour
     {
         if(!useCustomWaitTimes)
         {
-            _wait1 = new WaitForSeconds(clip_1.length);
-            _wait2 = new WaitForSeconds(clip_2.length);
+            //animator.GetNextAnimatorClipInfo()
+            if(animClip)_wait1 = new WaitForSeconds(animClip.length);//clip_1.length);
+            else _wait1 = new WaitForSeconds(clip_1.length);
+            _wait2 = _wait1;//new WaitForSeconds(clip_2.length);
         }
         else
         {
@@ -111,6 +114,7 @@ public class Interactive : FuzzyMonoBehaviour
                 if (_interacted)
                 {
                     animator.SetTrigger(-662453572);
+                    //if (_wait1 == null) _wait1 = new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
                     _interacted = !_interacted;
                     source.PlayOneShot(clip_1);
                     print("Playing Clip 1");
@@ -119,6 +123,7 @@ public class Interactive : FuzzyMonoBehaviour
                 else
                 {
                     animator.SetTrigger(-662453572);
+                    //if (_wait2 == null) _wait2 = new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
                     _interacted = !_interacted;
                     source.PlayOneShot(clip_2);
                     print("Playing Clip 2");

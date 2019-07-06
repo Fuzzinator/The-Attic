@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Comic Page 2
+  m_Controller: {fileID: 9100000, guid: 4bca1a620e8f5994ea5c1ae6236bedc6, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 6032492604129877260, guid: 3f25252b9306c63408436ea266674884,
+      type: 3}
+    m_OverrideClip: {fileID: 1684483055965129000, guid: 3664abcd950525243a72bab148bcc6e2,
+      type: 3}

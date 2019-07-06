@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Filing Cabinet Top Drawer
-  m_Controller: {fileID: 9100000, guid: ef7c61bf5e22b8d4baa31280862a0d15, type: 2}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 1ff00c8b455efe6458d3c76c2cf367f8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -6635671718535275343, guid: d0500c15393345e46837d7762438cbf6,
+      type: 3}
+    m_OverrideClip: {fileID: 7537665048655144180, guid: 399e6bf358a24bf4198c769ffb2e630e,
+      type: 3}

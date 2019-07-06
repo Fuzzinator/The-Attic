@@ -31,7 +31,7 @@ public class Interactive : FuzzyMonoBehaviour
     [AutoGet] public AudioSource source;
     [AutoGet] public Animator animator;
     [ReadOnly] [AutoGet] public Rigidbody thisRigid;
-    [ReadOnly] [AutoGet] public BoxCollider thisCollider;
+    [AutoGet] [ReadOnly] public BoxCollider thisCollider;
     [ReadOnly] [SerializeField] private bool _interacted = false;
     private WaitForSeconds _wait1;
     private WaitForSeconds _wait2;
@@ -66,10 +66,10 @@ public class Interactive : FuzzyMonoBehaviour
         //-662453572
 
         //print(Animator.StringToHash("Locked"));
-        //-662453572
+        //-310456921
 
         //print(Animator.StringToHash("Unlocked"));
-        //-662453572
+        //-125993919
 
         
 //        if (collectible && thisRigid != null)
@@ -163,7 +163,7 @@ public class Interactive : FuzzyMonoBehaviour
                     //return _wait2;
                 }
             case InteractType.Lock:
-                if (held)
+                if (held != null)
                 {
                     if (held.type == InteractType.Key && held.target == target)
                     {
@@ -172,7 +172,7 @@ public class Interactive : FuzzyMonoBehaviour
                         type = InteractType.Basic;
                         var rand = _pool.unlocks[Random.Range(0, _invalidLength)];
                         source.PlayOneShot(rand);
-                        animator.SetTrigger(-662453572);
+                        animator.SetTrigger(-125993919);
                         print("You unlocked the thing!");
                         return _pool.unlockWaits[rand];
                     }
@@ -195,7 +195,7 @@ public class Interactive : FuzzyMonoBehaviour
                 {
                     var rand = _pool.targetLocked[Random.Range(0, _invalidLength)];
                     source.PlayOneShot(rand);
-                    animator.SetTrigger(-662453572);
+                    animator.SetTrigger(-310456921);
                     print("It is locked");
                     return _pool.lockedWaits[rand];
                 }

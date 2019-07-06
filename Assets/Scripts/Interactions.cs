@@ -15,7 +15,7 @@ public class Interactions : FuzzyMonoBehaviour
     [ReadOnly] public GameObject currentObj;
     [ReadOnly] public Interactive heldObj;
     [SerializeField] [ReadOnly] private Interactive activeInteractive;
-    [AutoGet] [SerializeField] [ReadOnly] private BoxCollider trigger;
+    [AutoGet] [SerializeField] [ReadOnly] private BoxCollider _trigger;
 
     private PlayerControlls _controls;
 
@@ -47,6 +47,7 @@ public class Interactions : FuzzyMonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        
         DisableInteract();
     }
 
@@ -89,10 +90,11 @@ public class Interactions : FuzzyMonoBehaviour
     private IEnumerator Interact()
     {
         //_controls.Main.Interact.Disable();
-        DisableInteract();
+        
         print("You interacted!");
         yield return null;
         var waitTime = activeInteractive.Interact(this);
+        DisableInteract();
         yield return waitTime;
         print("You can interact again.");
         _controls.Main.Interact.Enable();

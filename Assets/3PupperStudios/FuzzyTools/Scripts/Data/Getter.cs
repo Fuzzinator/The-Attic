@@ -19,6 +19,7 @@ namespace FuzzyTools
                 
 				foreach (var field in objFields)
 				{
+					if(field.GetValue(mono) == null ||field.GetValue(mono).ToString() != "null") continue;
 					var attribute =
 						Attribute.GetCustomAttribute(field, typeof(T)) as T;
 					if (attribute == null) continue;

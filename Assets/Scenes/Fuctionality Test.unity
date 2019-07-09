@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2175.0347, g: 2455.701, b: 2581.4785, a: 1}
+  m_IndirectSpecularColor: {r: 1483.0143, g: 1655.2976, b: 1725.0181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 122056023}
   - component: {fileID: 122056022}
   m_Layer: 9
-  m_Name: Area Light (1)
+  m_Name: Trike Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 139950961}
   - component: {fileID: 139950960}
   m_Layer: 0
-  m_Name: Directional Light (4)
+  m_Name: Clock Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 311977788}
   - component: {fileID: 311977787}
   m_Layer: 9
-  m_Name: Area Light (1)
+  m_Name: Postcards Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1075,7 +1075,7 @@ GameObject:
   - component: {fileID: 611425576}
   - component: {fileID: 611425575}
   m_Layer: 0
-  m_Name: Directional Light (3)
+  m_Name: Forward Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   useVolumetric: 0
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 5000
+  displayLightIntensity: 4000
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -1195,7 +1195,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 5000
+  m_Intensity: 4000
   m_Range: 610.6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1609,7 +1609,7 @@ GameObject:
   - component: {fileID: 956608778}
   - component: {fileID: 956608777}
   m_Layer: 0
-  m_Name: Directional Light (2)
+  m_Name: Back Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1701,7 +1701,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 10000
+  displayLightIntensity: 5000
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -1729,7 +1729,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 10000
+  m_Intensity: 5000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 1174204731}
   - component: {fileID: 1174204730}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Map Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
     albedo: {r: 1, g: 0.9901372, b: 0.8915094, a: 1}
-    meanFreePath: 50
+    meanFreePath: 25
     asymmetry: 0
     volumeMask: {fileID: 0}
     textureScrollingSpeed: {x: 0, y: 0, z: 0}
@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 1960725335}
   - component: {fileID: 1960725334}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Hanging Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 5000000
+  displayLightIntensity: 1000000
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -3562,7 +3562,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 0.9868069, b: 0.7688679, a: 1}
-  m_Intensity: 397887.34
+  m_Intensity: 79577.47
   m_Range: 50
   m_SpotAngle: 160.45091
   m_InnerSpotAngle: 21.80208

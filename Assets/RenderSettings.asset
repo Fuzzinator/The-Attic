@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   colorMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   color:
     m_OverrideState: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
     max: 1
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 401.5
+    m_Value: 600
     min: 0
   mipFogMaxMip:
     m_OverrideState: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   depthExtent:
     m_OverrideState: 1
-    m_Value: 64
+    m_Value: 32
     min: 0.1
   sliceDistributionUniformity:
     m_OverrideState: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
     min: 0
   desiredLuxValue:
     m_OverrideState: 1
-    m_Value: 15000
+    m_Value: 10000
   updateMode:
     m_OverrideState: 1
     m_Value: 0

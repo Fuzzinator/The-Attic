@@ -412,7 +412,7 @@ MonoBehaviour:
   currentObj: {fileID: 0}
   heldObj: {fileID: 0}
   activeInteractive: {fileID: 0}
-  trigger: {fileID: 6836472169800683960}
+  _trigger: {fileID: 0}
 --- !u!114 &2940937936764724751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
+  SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
   physicalParameters:

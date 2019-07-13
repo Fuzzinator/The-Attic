@@ -51,6 +51,17 @@ public class PlayerControlls : IInputActionCollection
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)"",
                     ""bindings"": []
+                },
+                {
+                    ""name"": ""Prone"",
+                    ""id"": ""3f07d5cf-b081-40ba-b463-6bc22b39ef68"",
+                    ""expectedControlLayout"": """",
+                    ""continuous"": false,
+                    ""passThrough"": false,
+                    ""initialStateCheck"": false,
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""bindings"": []
                 }
             ],
             ""bindings"": [
@@ -149,6 +160,42 @@ public class PlayerControlls : IInputActionCollection
                     ""isComposite"": false,
                     ""isPartOfComposite"": false,
                     ""modifiers"": """"
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""162c6d99-dc55-4d63-b676-d6cf2137ab75"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Prone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false,
+                    ""modifiers"": """"
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3c3ddf1-db05-4464-9d1d-de7888ace48d"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Prone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false,
+                    ""modifiers"": """"
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ace1ec4c-7c1f-4ef0-9270-7ebcbfd3cd75"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Prone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false,
+                    ""modifiers"": """"
                 }
             ]
         }
@@ -160,6 +207,7 @@ public class PlayerControlls : IInputActionCollection
         m_Main_Interact = m_Main.GetAction("Interact");
         m_Main_Crouch = m_Main.GetAction("Crouch");
         m_Main_DropItem = m_Main.GetAction("DropItem");
+        m_Main_Prone = m_Main.GetAction("Prone");
     }
 
     ~PlayerControlls()
@@ -215,6 +263,7 @@ public class PlayerControlls : IInputActionCollection
     private InputAction m_Main_Interact;
     private InputAction m_Main_Crouch;
     private InputAction m_Main_DropItem;
+    private InputAction m_Main_Prone;
     public struct MainActions
     {
         private PlayerControlls m_Wrapper;
@@ -222,6 +271,7 @@ public class PlayerControlls : IInputActionCollection
         public InputAction @Interact { get { return m_Wrapper.m_Main_Interact; } }
         public InputAction @Crouch { get { return m_Wrapper.m_Main_Crouch; } }
         public InputAction @DropItem { get { return m_Wrapper.m_Main_DropItem; } }
+        public InputAction @Prone { get { return m_Wrapper.m_Main_Prone; } }
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,6 +291,9 @@ public class PlayerControlls : IInputActionCollection
                 DropItem.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDropItem;
                 DropItem.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDropItem;
                 DropItem.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDropItem;
+                Prone.started -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
+                Prone.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
+                Prone.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -254,6 +307,9 @@ public class PlayerControlls : IInputActionCollection
                 DropItem.started += instance.OnDropItem;
                 DropItem.performed += instance.OnDropItem;
                 DropItem.canceled += instance.OnDropItem;
+                Prone.started += instance.OnProne;
+                Prone.performed += instance.OnProne;
+                Prone.canceled += instance.OnProne;
             }
         }
     }
@@ -269,5 +325,6 @@ public class PlayerControlls : IInputActionCollection
         void OnInteract(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnDropItem(InputAction.CallbackContext context);
+        void OnProne(InputAction.CallbackContext context);
     }
 }

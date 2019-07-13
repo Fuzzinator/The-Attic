@@ -92,8 +92,21 @@
           <e p="SteamerTrunkLatches.cs" t="Include" />
           <e p="SteamerTrunkLock.cs" t="Include" />
         </e>
+        <e p="Shaders" t="Include">
+          <e p="Lit.shader" t="Include" />
+          <e p="Outline.shader" t="Include" />
+        </e>
         <e p="Standard Assets" t="Include">
           <e p="Characters" t="Include">
+            <e p="FirstPersonCharacter" t="Include">
+              <e p="FirstPersonCharacterGuidelines.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="FirstPersonController.cs" t="Include" />
+                <e p="HeadBob.cs" t="Include" />
+                <e p="MouseLook.cs" t="Include" />
+                <e p="RigidbodyFirstPersonController.cs" t="Include" />
+              </e>
+            </e>
             <e p="RollerBall" t="Include">
               <e p="RollerBallGuidelines.txt" t="Include" />
               <e p="Scripts" t="Include">
@@ -102,15 +115,6 @@
               </e>
             </e>
             <e p="ThirdPersonCharacter" t="Include">
-              <e p="FirstPersonCharacter" t="Include">
-                <e p="FirstPersonCharacterGuidelines.txt" t="Include" />
-                <e p="Scripts" t="Include">
-                  <e p="FirstPersonController.cs" t="Include" />
-                  <e p="HeadBob.cs" t="Include" />
-                  <e p="MouseLook.cs" t="Include" />
-                  <e p="RigidbodyFirstPersonController.cs" t="Include" />
-                </e>
-              </e>
               <e p="Scripts" t="Include">
                 <e p="AICharacterControl.cs" t="Include" />
                 <e p="ThirdPersonCharacter.cs" t="Include" />

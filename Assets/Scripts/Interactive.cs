@@ -25,6 +25,8 @@ public class Interactive : FuzzyMonoBehaviour
     public float customWaitTime1 = 1;
     public float customWaitTime2 = 1;
 
+    public Renderer[] rends;
+
     //public bool collectible = false;
     [ReadOnly]public Vector3 origPos;
     [ReadOnly] public Quaternion origRot;

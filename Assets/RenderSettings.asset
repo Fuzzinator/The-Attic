@@ -218,7 +218,7 @@ MonoBehaviour:
     min: 0
   desiredLuxValue:
     m_OverrideState: 1
-    m_Value: 10000
+    m_Value: 15000
   updateMode:
     m_OverrideState: 1
     m_Value: 0

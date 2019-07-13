@@ -10,10 +10,12 @@ public class Interactions : FuzzyMonoBehaviour
 {
     public Transform holdPos;
     public GameObject interactIcon;
+    public Material highlight;
     [ReadOnly] public GameObject currentObj;
     [ReadOnly] public Interactive heldObj;
     [SerializeField] [ReadOnly] private Interactive activeInteractive;
     [AutoGet] [SerializeField] [ReadOnly] private BoxCollider _trigger;
+    private Renderer[] _currentRends;
 
     private PlayerControlls _controls;
 
@@ -67,6 +69,14 @@ public class Interactions : FuzzyMonoBehaviour
             return;
         }
         interactIcon.SetActive(true);
+        _currentRends = activeInteractive.rends;
+        foreach (var rend in _currentRends)
+        {
+            var mats = new List<Material>();
+            mats.AddRange(rend.sharedMaterials);
+            mats.Add(highlight);
+            rend.sharedMaterials = mats.ToArray();
+        }
         _controls.Main.Interact.performed += InteractOnPerformed;
      }
 
@@ -74,6 +84,13 @@ public class Interactions : FuzzyMonoBehaviour
     {
         print("Cant interact with " + currentObj);
         currentObj = null;
+        foreach (var rend in _currentRends)
+        {
+            var mats = new List<Material>();
+            mats.AddRange(rend.sharedMaterials);
+            mats.Remove(highlight);
+            rend.sharedMaterials = mats.ToArray();
+        }
         activeInteractive = null;
         interactIcon.SetActive(false);
         _controls.Main.Interact.performed -= InteractOnPerformed;

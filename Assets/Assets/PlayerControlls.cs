@@ -62,6 +62,17 @@ public class PlayerControlls : IInputActionCollection
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""bindings"": []
+                },
+                {
+                    ""name"": ""Flashlight"",
+                    ""id"": ""d678ebaf-ab5e-42ab-b0c2-75dce1f05b27"",
+                    ""expectedControlLayout"": """",
+                    ""continuous"": false,
+                    ""passThrough"": false,
+                    ""initialStateCheck"": false,
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""bindings"": []
                 }
             ],
             ""bindings"": [
@@ -177,7 +188,7 @@ public class PlayerControlls : IInputActionCollection
                     ""name"": """",
                     ""id"": ""f3c3ddf1-db05-4464-9d1d-de7888ace48d"",
                     ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Prone"",
@@ -189,10 +200,34 @@ public class PlayerControlls : IInputActionCollection
                     ""name"": """",
                     ""id"": ""ace1ec4c-7c1f-4ef0-9270-7ebcbfd3cd75"",
                     ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Prone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false,
+                    ""modifiers"": """"
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""374e8fc6-1a14-47d1-91c5-f571d72b6827"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flashlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false,
+                    ""modifiers"": """"
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57f31b8a-7dd1-440e-bc1c-3d1e4a497bf7"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false,
                     ""modifiers"": """"
@@ -208,6 +243,7 @@ public class PlayerControlls : IInputActionCollection
         m_Main_Crouch = m_Main.GetAction("Crouch");
         m_Main_DropItem = m_Main.GetAction("DropItem");
         m_Main_Prone = m_Main.GetAction("Prone");
+        m_Main_Flashlight = m_Main.GetAction("Flashlight");
     }
 
     ~PlayerControlls()
@@ -264,6 +300,7 @@ public class PlayerControlls : IInputActionCollection
     private InputAction m_Main_Crouch;
     private InputAction m_Main_DropItem;
     private InputAction m_Main_Prone;
+    private InputAction m_Main_Flashlight;
     public struct MainActions
     {
         private PlayerControlls m_Wrapper;
@@ -272,6 +309,7 @@ public class PlayerControlls : IInputActionCollection
         public InputAction @Crouch { get { return m_Wrapper.m_Main_Crouch; } }
         public InputAction @DropItem { get { return m_Wrapper.m_Main_DropItem; } }
         public InputAction @Prone { get { return m_Wrapper.m_Main_Prone; } }
+        public InputAction @Flashlight { get { return m_Wrapper.m_Main_Flashlight; } }
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +332,9 @@ public class PlayerControlls : IInputActionCollection
                 Prone.started -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
                 Prone.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
                 Prone.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnProne;
+                Flashlight.started -= m_Wrapper.m_MainActionsCallbackInterface.OnFlashlight;
+                Flashlight.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnFlashlight;
+                Flashlight.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnFlashlight;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,6 +351,9 @@ public class PlayerControlls : IInputActionCollection
                 Prone.started += instance.OnProne;
                 Prone.performed += instance.OnProne;
                 Prone.canceled += instance.OnProne;
+                Flashlight.started += instance.OnFlashlight;
+                Flashlight.performed += instance.OnFlashlight;
+                Flashlight.canceled += instance.OnFlashlight;
             }
         }
     }
@@ -326,5 +370,6 @@ public class PlayerControlls : IInputActionCollection
         void OnCrouch(InputAction.CallbackContext context);
         void OnDropItem(InputAction.CallbackContext context);
         void OnProne(InputAction.CallbackContext context);
+        void OnFlashlight(InputAction.CallbackContext context);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Flashlight : MonoBehaviour
 {
-   public GameObject flashlight;
+   public Light flashlight;
    [SerializeField]
    [ReadOnly]
    private AudioSource audioSource;
@@ -22,6 +22,6 @@ public class Flashlight : MonoBehaviour
    private void UseFlashlight(InputAction.CallbackContext obj)
    {
       _flashlightOn = !_flashlightOn;
-      flashlight.SetActive(_flashlightOn);
+      flashlight.enabled = _flashlightOn;
    }
 }

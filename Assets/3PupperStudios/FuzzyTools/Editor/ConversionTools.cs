@@ -493,15 +493,15 @@ namespace FuzzyTools
 			bounds.size = new Vector3(terrain.size.x, bounds.size.y, terrain.size.z);
 
 			// Do raycasting samples over the object to see what terrain heights should be
-			var heightMaps = new float[terrain.heightmapWidth, terrain.heightmapHeight];
+			var heightMaps = new float[terrain.heightmapResolution, terrain.heightmapResolution];
 
 			var ray = new Ray(new Vector3(bounds.min.x, bounds.max.y + bounds.size.y, bounds.min.z), -Vector3.up);
 			var hit = new RaycastHit();
 			var meshHeightInverse = 1 / bounds.size.y;
 			var rayOrigin = ray.origin;
 
-			var maxLength = terrain.heightmapWidth;
-			var maxHeight = terrain.heightmapHeight;
+			var maxLength = terrain.heightmapResolution;
+			var maxHeight = terrain.heightmapResolution;
 
 			var stepXZ = new Vector2(bounds.size.x / maxLength, bounds.size.z / maxHeight);
 
@@ -908,8 +908,8 @@ namespace FuzzyTools
 
 			_terrainPos = _sourceTerrain != null ? _sourceTerrain.transform.position : Vector3.zero;
 
-			var width = _sourceTerrainData.heightmapWidth; // - 1;
-			var height = _sourceTerrainData.heightmapHeight; // - 1;
+			var width = _sourceTerrainData.heightmapResolution; // - 1;
+			var height = _sourceTerrainData.heightmapResolution; // - 1;
 			var terrainSize = _sourceTerrainData.size;
 			var saveRes = (int) Mathf.Pow(2, (int) _resolution);
 			terrainSize = new Vector3(terrainSize.x / (width - 1) * saveRes, terrainSize.y,

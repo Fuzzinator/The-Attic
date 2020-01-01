@@ -3511,11 +3511,11 @@ namespace FuzzyTools
             if (center == null)
                 return;
             var centerTerrain = center.GetComponent<Terrain>();
-            var centerHeights = centerTerrain.terrainData.GetHeights(0, 0, centerTerrain.terrainData.heightmapWidth, centerTerrain.terrainData.heightmapHeight);
+            var centerHeights = centerTerrain.terrainData.GetHeights(0, 0, centerTerrain.terrainData.heightmapResolution, centerTerrain.terrainData.heightmapResolution);
             if (top != null)
             {
                 var topTerrain = top.GetComponent<Terrain>();
-                var topHeights = topTerrain.terrainData.GetHeights(0, 0, topTerrain.terrainData.heightmapWidth, topTerrain.terrainData.heightmapHeight);
+                var topHeights = topTerrain.terrainData.GetHeights(0, 0, topTerrain.terrainData.heightmapResolution, topTerrain.terrainData.heightmapResolution);
                 if (topHeights.GetLength(0) != centerHeights.GetLength(0))
                 {
                     Debug.Log("Terrain sizes must be equal");
@@ -3529,7 +3529,7 @@ namespace FuzzyTools
             if (left != null)
             {
                 var leftTerrain = left.GetComponent<Terrain>();
-                var leftHeights = leftTerrain.terrainData.GetHeights(0, 0, leftTerrain.terrainData.heightmapWidth, leftTerrain.terrainData.heightmapHeight);
+                var leftHeights = leftTerrain.terrainData.GetHeights(0, 0, leftTerrain.terrainData.heightmapResolution, leftTerrain.terrainData.heightmapResolution);
                 if (leftHeights.GetLength(0) != centerHeights.GetLength(0))
                 {
                     Debug.Log("Terrain sizes must be equal");

@@ -81,6 +81,7 @@
         <e p="Scripts" t="Include">
           <e p="AudioPool.cs" t="Include" />
           <e p="Controller.cs" t="Include" />
+          <e p="FireFlicker.cs" t="Include" />
           <e p="Flashlight.cs" t="Include" />
           <e p="Interactions.cs" t="Include" />
           <e p="Interactive.cs" t="Include" />
@@ -194,14 +195,12 @@
             <e p="DynamicShadowSettings.cs" t="Include" />
             <e p="EventSystemChecker.cs" t="Include" />
             <e p="FollowTarget.cs" t="Include" />
-            <e p="ForcedReset.cs" t="Include" />
             <e p="FOVKick.cs" t="Include" />
             <e p="FPSCounter.cs" t="Include" />
             <e p="LerpControlledBob.cs" t="Include" />
             <e p="ObjectResetter.cs" t="Include" />
             <e p="ParticleSystemDestroyer.cs" t="Include" />
             <e p="PlatformSpecificContent.cs" t="Include" />
-            <e p="SimpleActivatorMenu.cs" t="Include" />
             <e p="SimpleMouseRotator.cs" t="Include" />
             <e p="SmoothFollow.cs" t="Include" />
             <e p="TimedObjectActivator.cs" t="Include" />
@@ -246,6 +245,20 @@
             <e p="Readme.cs" t="Include" />
           </e>
         </e>
+        <e p="Universal Sound FX" t="Include">
+          <e p="#Game Genre References" t="Include">
+            <e p="8bit and Retro.txt" t="Include" />
+            <e p="Fighting.txt" t="Include" />
+            <e p="First Person Shooter (FPS).txt" t="Include" />
+            <e p="Physics.txt" t="Include" />
+            <e p="Platform.txt" t="Include" />
+            <e p="Puzzle.txt" t="Include" />
+            <e p="Real Time Stategy (RTS) Medieval.txt" t="Include" />
+            <e p="Real Time Stategy (RTS) Sci-Fi.txt" t="Include" />
+            <e p="Shoot em Up.txt" t="Include" />
+          </e>
+          <e p="version_history.txt" t="Include" />
+        </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
@@ -255,6 +268,7 @@
       </e>
       <e p="The-Attic.sln" t="IncludeFlat" />
     </e>
+    <e p="C:\Users\Fuzzy\.Rider2018.2\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\Fuzzy\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Fuzzy\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_The-Attic.-832012725.00" t="ExcludeRecursive" />
   </component>

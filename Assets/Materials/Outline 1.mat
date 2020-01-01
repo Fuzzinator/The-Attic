@@ -25,8 +25,8 @@ Material:
     m_Floats:
     - Vector1_B4D0FD77: 1
     - _FresnelStrength: 0.5
-    - _Opacity: 0.5
-    - _Size: 0.064
+    - _Opacity: 0.2
+    - _Size: 0.01
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 0.9270866, a: 1}
+    - _Color: {r: 0, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

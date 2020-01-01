@@ -13,7 +13,7 @@ public class Flashlight : MonoBehaviour
    
    private bool _flashlightOn;
 
-   private void Awake()
+   private void Start()
    {
       Controller.Controls.Main.Flashlight.Enable();
       Controller.Controls.Main.Flashlight.performed += UseFlashlight;
